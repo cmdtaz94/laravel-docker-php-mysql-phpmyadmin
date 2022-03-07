@@ -10,7 +10,6 @@ services:
   environment:
    MYSQL_DATABASE: 'laravel'
    MYSQL_ALLOW_EMPTY_PASSWORD: 1
-#   MYSQL_ROOT_PASSWORD: ""
   volumes:
    - ./db:/var/lib/mysql
 
@@ -32,6 +31,6 @@ services:
   environment:
    - PMA_HOST=db
   
-  5
+  
    
   
