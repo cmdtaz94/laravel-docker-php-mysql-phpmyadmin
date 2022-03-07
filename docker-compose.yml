@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+
+ db:
+  image: mysql:5.7
+  restart: always
+  ports:
+   - "8086:3306"
+  environment:
+   MYSQL_DATABASE: 'laravel'
+   MYSQL_ALLOW_EMPTY_PASSWORD: 1
+#   MYSQL_ROOT_PASSWORD: ""
+  volumes:
+   - ./db:/var/lib/mysql
+
+ app:
+  build:
+   context: .
+   dockerfile: .docker/Dockerfile
+  image: 'laravelapp'
+  ports:
+   - "8080:80"
+  volumes: 
+   - ./:/var/www/html
+
+ phpmyadmin:
+  image: phpmyadmin
+  restart: always
+  ports:
+   - 8081:80
+  environment:
+   - PMA_HOST=db
+  
+  5
+   
+  
